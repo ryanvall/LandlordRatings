@@ -7,10 +7,11 @@ namespace LandlordRatings.Models
 {
     public class RatingModel
     {
-        private int priceScore { get; set; }
-        private int personalityScore { get; set; }
-        private int flexibilityScore { get; set; }
-        private int responsivenessScore { get; set; }
-        private double overallScore { get; set; }
+        public int ID { get; set; }
+        public int priceScore { get; set; }
+        public int personalityScore { get; set; }
+        public int flexibilityScore { get; set; }
+        public int responsivenessScore { get; set; }
+        public double overallScore { get; set; }
     }
 }
