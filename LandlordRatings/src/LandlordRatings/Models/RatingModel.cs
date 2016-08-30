@@ -11,5 +11,6 @@ namespace LandlordRatings.Models
         private int personalityScore { get; set; }
         private int flexibilityScore { get; set; }
         private int responsivenessScore { get; set; }
+        private double overallScore { get; set; }
     }
 }
