@@ -20,7 +20,7 @@ namespace LandlordRatings.Controllers
             _context = context;
         }
 
-        // GET: /<controller>/
+        // GET: /Landlords/
         public IActionResult Index()
         {
             return View(_context.Landlords.ToList());

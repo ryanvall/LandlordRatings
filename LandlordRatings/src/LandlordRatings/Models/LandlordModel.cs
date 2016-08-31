@@ -11,8 +11,7 @@ namespace LandlordRatings.Models
     {
         public int ID { get; set; }
         public landlordTypes type { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
+        public string name { get; set; }
         public string city { get; set; }
         public string state { get; set; }
         public string zipcode { get; set; }
