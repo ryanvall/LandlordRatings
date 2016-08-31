@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using LandlordRatings.Data;
+using LandlordRatings.Models;
 
 namespace LandlordRatings
 {
@@ -34,6 +37,9 @@ namespace LandlordRatings
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=LandlordRatings.Data;Trusted_Connection=True;";
+            //can also be UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
+            services.AddDbContext<LandlordDbContext>(options => options.UseSqlServer(connection));
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddMvc();
