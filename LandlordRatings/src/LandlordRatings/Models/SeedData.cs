@@ -23,22 +23,22 @@ namespace MvcMovie.Models
                 context.Landlords.AddRange(
                      new LandlordModel
                      {
-                         type = landlordTypes.Individual,
-                         name = "David Rossi",
-                         city = "Cleveland",
-                         state = "Ohio",
-                         zipcode = "44106",
-                         rating = null
+                         Type = landlordTypes.Individual,
+                         Name = "David Rossi",
+                         City = "Cleveland",
+                         State = "Ohio",
+                         Zipcode = "44106",
+                         Rating = null
                      },
 
                      new LandlordModel
                      {
-                         type = landlordTypes.Company,
-                         name = "Uptown",
-                         city = "Cleveland",
-                         state = "Ohio",
-                         zipcode = "44106",
-                         rating = null
+                         Type = landlordTypes.Company,
+                         Name = "Uptown",
+                         City = "Cleveland",
+                         State = "Ohio",
+                         Zipcode = "44106",
+                         Rating = null
                      }
                 );
                 context.SaveChanges();

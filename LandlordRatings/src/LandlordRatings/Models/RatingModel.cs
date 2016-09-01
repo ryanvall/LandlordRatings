@@ -13,6 +13,7 @@ namespace LandlordRatings.Models
         public int PersonalityScore { get; set; }
         public int FlexibilityScore { get; set; }
         public int ResponsivenessScore { get; set; }
+        [Display(Name = "Overall Score")]
         public double OverallScore { get; set; }
         [StringLength(300, ErrorMessage = "Comments are limited to 300 characters.")]
         public string Comments { get; set; }
