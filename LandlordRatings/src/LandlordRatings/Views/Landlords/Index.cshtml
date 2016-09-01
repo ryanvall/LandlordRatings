@@ -1,9 +1,63 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
+@model IEnumerable<LandlordRatings.Models.LandlordModel>
+
 @{
     ViewData["Title"] = "Landlords Index";
 }
 
 <h2>Landlords Index</h2>
 <p>hi</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zipcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating.OverallScore)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var landlord in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(landlordItem => landlord.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(landlordItem => landlord.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(landlordItem => landlord.City)
+        </td>
+        <td>
+            @Html.DisplayFor(landlordItem => landlord.State)
+        </td>
+        <td>
+            @Html.DisplayFor(landlordItem => landlord.Zipcode)
+        </td>
+        <td>
+            @Html.DisplayFor(landlordItem => landlord.Rating.OverallScore)
+        </td>
+        @*edit/details/delete go here*@
+    </tr>
+
+}
+    </tbody>
+</table>

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using LandlordRatings.Data;
 using LandlordRatings.Models;
+using MvcMovie.Models;
 
 namespace LandlordRatings
 {
@@ -73,6 +74,8 @@ namespace LandlordRatings
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            SeedData.Initialize(app.ApplicationServices);
         }
     }
 }

@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace LandlordRatings.Models
 {
     public class RatingModel
     {
         public int ID { get; set; }
-        public int priceScore { get; set; }
-        public int personalityScore { get; set; }
-        public int flexibilityScore { get; set; }
-        public int responsivenessScore { get; set; }
-        public double overallScore { get; set; }
+        public int PriceScore { get; set; }
+        public int PersonalityScore { get; set; }
+        public int FlexibilityScore { get; set; }
+        public int ResponsivenessScore { get; set; }
+        public double OverallScore { get; set; }
+        [StringLength(300, ErrorMessage = "Comments are limited to 300 characters.")]
+        public string Comments { get; set; }
     }
 }
