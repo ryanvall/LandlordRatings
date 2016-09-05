@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model LandlordRatings.Models.LandlordModel
+
+@{
+    ViewData["Title"] = "Landlord Details";
+}
+
+<h2>Name: @(Model.Name)</h2>
+<h3>Type: @(Model.Type.ToString())</h3>
+<h3>Location: @(Model.City), @(Model.State)</h3>
+
+@if (Model.Ratings.Count() != 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ratings[0].FlexibilityScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ratings[0].PersonalityScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ratings[0].PriceScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ratings[0].ResponsivenessScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ratings[0].OverallScore)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rating in Model.Ratings)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(ratingItem => rating.FlexibilityScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ratingItem => rating.PersonalityScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ratingItem => rating.PriceScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ratingItem => rating.ResponsivenessScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ratingItem => rating.OverallScore)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No ratings found</p>
+}

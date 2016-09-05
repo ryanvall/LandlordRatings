@@ -15,6 +15,6 @@ namespace LandlordRatings.Models
         public string City { get; set; }
         public string State { get; set; }
         public string Zipcode { get; set; }
-        public RatingModel Rating { get; set; }
+        public List<RatingModel> Ratings { get; set; }
     }
 }

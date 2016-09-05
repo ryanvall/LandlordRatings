@@ -53,5 +53,10 @@ namespace LandlordRatings.Controllers
 
             return View(landlord);
         }
+
+        public IActionResult Details(int ID = 0)
+        {
+            return View();
+        }
     }
 }
