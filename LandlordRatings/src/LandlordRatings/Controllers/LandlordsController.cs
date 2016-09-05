@@ -20,15 +20,18 @@ namespace LandlordRatings.Controllers
             _context = context;
         }
 
-        // GET: /Landlords/[letter]
-        public IActionResult Index(string letter)
+        // GET: /Landlords?name=[letter]
+        public IActionResult Index(string name = "")
         {
-            if (letter == null)
+            if (name == null)
             {
                 return View(_context.Landlords.ToList());
             } else
             {
-                return View(_context.Landlords.Select(l => l.Name.Contains(letter)));
+                var query = from l in _context.Landlords
+                            where l.Name.Contains(name)
+                            select l;
+                return View(query.ToList());
             }
         }
 
