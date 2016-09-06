@@ -28,7 +28,7 @@ namespace MvcMovie.Models
                          City = "Cleveland",
                          State = "Ohio",
                          Zipcode = "44106",
-                         Rating = null
+                         Ratings = new System.Collections.Generic.List<RatingModel>()
                      },
 
                      new LandlordModel
@@ -38,7 +38,7 @@ namespace MvcMovie.Models
                          City = "Cleveland",
                          State = "Ohio",
                          Zipcode = "44106",
-                         Rating = null
+                         Ratings = new System.Collections.Generic.List<RatingModel>()
                      }
                 );
                 context.SaveChanges();

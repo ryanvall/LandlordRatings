@@ -35,11 +35,13 @@ namespace LandlordRatings.Controllers
             }
         }
 
+        // GET: /Landlords/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        // POST: /Landlords/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(LandlordModel landlord)
@@ -54,9 +56,21 @@ namespace LandlordRatings.Controllers
             return View(landlord);
         }
 
-        public IActionResult Details(int ID = 0)
+        // GET: /Landlords/5 (unique ID)
+        public IActionResult Details(int? ID)
         {
-            return View();
+            if (ID == null)
+            {
+                return NotFound();
+            } else
+            {
+                LandlordModel lm = _context.Landlords.SingleOrDefault(l => l.ID == ID);
+                if (lm == null)
+                {
+                    return NotFound();
+                }
+                return View(lm);
+            }
         }
     }
 }

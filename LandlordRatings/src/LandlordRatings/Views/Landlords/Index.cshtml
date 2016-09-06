@@ -9,7 +9,7 @@
 }
 
 <h2>Landlords Index</h2>
-<p>hi</p>
+
 @if (Model.Count() != 0)
 {
 <table class="table">
@@ -30,9 +30,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Zipcode)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Rating.OverallScore)
-            </th>
+            </th>*@
         </tr>
     </thead>
     <tbody>
@@ -54,9 +54,9 @@
         <td>
             @Html.DisplayFor(landlordItem => landlord.Zipcode)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(landlordItem => landlord.Rating.OverallScore)
-        </td>
+        </td>*@
         <td>
             <a asp-action="Details" asp-route-id="@landlord.ID">Details</a>
         </td>

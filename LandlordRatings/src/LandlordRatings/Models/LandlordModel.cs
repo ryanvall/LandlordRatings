@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace LandlordRatings.Models
 {
-    public enum landlordTypes { Individual, Company };
+    public enum landlordTypes
+    { Individual = 0,
+      Company = 1
+    };
 
     public class LandlordModel
     {

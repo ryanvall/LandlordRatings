@@ -8,9 +8,10 @@ using LandlordRatings.Data;
 namespace LandlordRatings.Migrations
 {
     [DbContext(typeof(LandlordDbContext))]
-    partial class LandlordDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160906154747_ThirdMigration")]
+    partial class ThirdMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
