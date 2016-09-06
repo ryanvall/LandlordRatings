@@ -41,6 +41,32 @@ namespace MvcMovie.Models
                          Ratings = new System.Collections.Generic.List<RatingModel>()
                      }
                 );
+
+                // Look for any ratings.
+                if (context.Ratings.Any())
+                {
+                    return;   // DB has been seeded
+                }
+
+                context.Ratings.AddRange(
+                     new RatingModel
+                     {
+                         PriceScore = 3,
+                         PersonalityScore = 4,
+                         FlexibilityScore = 4,
+                         ResponsivenessScore = 2,
+                         Comments = "ok. rossi test",
+                     },
+
+                     new RatingModel
+                     {
+                         PriceScore = 2,
+                         PersonalityScore = 4,
+                         FlexibilityScore = 3,
+                         ResponsivenessScore = 5,
+                         Comments = "great! uptown test",
+                     }
+                );
                 context.SaveChanges();
             }
         }

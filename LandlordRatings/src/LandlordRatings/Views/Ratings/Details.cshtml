@@ -1,5 +1,60 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
+@model IEnumerable<LandlordRatings.Models.RatingModel>
+
 @{
+    ViewData["Title"] = "Rating Details";
+}
+
+@if (Model.Count() != 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlexibilityScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PersonalityScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PriceScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ResponsivenessScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OverallScore)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rating in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(ratingItem => rating.FlexibilityScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ratingItem => rating.PersonalityScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ratingItem => rating.PriceScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ratingItem => rating.ResponsivenessScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ratingItem => rating.OverallScore)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No ratings found. Be the first to submit one <a href="/Ratings/Create/@(Model.ID)">here!</a></p>
 }

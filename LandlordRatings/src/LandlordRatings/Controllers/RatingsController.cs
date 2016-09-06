@@ -34,13 +34,30 @@ namespace LandlordRatings.Controllers
             }
             else
             {
-                List<RatingModel> ratingModels = _context.Ratings.Where(l => l.ID == ID).ToList();
-                if (ratingModels.Count == 0)
-                {
-                    return NotFound();
-                }
+                List<RatingModel> ratingModels = _context.Ratings.Where(l => l.LandlordID == ID).ToList();
                 return View(ratingModels);
             }
+        }
+
+        // GET: /Ratings/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: /Ratings/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(RatingModel rating)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Ratings.Add(rating);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(rating);
         }
     }
 }
