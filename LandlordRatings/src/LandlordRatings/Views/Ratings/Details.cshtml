@@ -56,5 +56,5 @@
 }
 else
 {
-    <p>No ratings found. Be the first to submit one <a href="/Ratings/Create/@(Model.ID)">here!</a></p>
+    <p>No ratings found. Be the first to submit one <a href="/Ratings/Create/@(Model.FirstOrDefault().ID)">here!</a></p>
 }
