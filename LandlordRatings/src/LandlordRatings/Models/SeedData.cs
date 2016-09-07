@@ -23,7 +23,7 @@ namespace MvcMovie.Models
                 context.Landlords.AddRange(
                      new LandlordModel
                      {
-                         Type = landlordTypes.Individual,
+                         Type = LandlordTypes.Individual,
                          Name = "David Rossi",
                          City = "Cleveland",
                          State = "Ohio",
@@ -33,7 +33,7 @@ namespace MvcMovie.Models
 
                      new LandlordModel
                      {
-                         Type = landlordTypes.Company,
+                         Type = LandlordTypes.Company,
                          Name = "Uptown",
                          City = "Cleveland",
                          State = "Ohio",

@@ -8,6 +8,7 @@ namespace LandlordRatings.Models
 {
     public class RatingModel
     {
+        public int ID { get; set; }
         public int LandlordID { get; set; }
         public int PriceScore { get; set; }
         public int PersonalityScore { get; set; }

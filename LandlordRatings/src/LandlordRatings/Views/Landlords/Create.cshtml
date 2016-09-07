@@ -1,5 +1,64 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
+@model LandlordRatings.Models.LandlordModel
+
 @{
+    ViewData["Title"] = "Add a new Landlord";
 }
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Landlord</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Type" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @*<input asp-for="Type" class="form-control" />*@
+                <select asp-for="Type" asp-items="@Html.GetEnumSelectList<LandlordRatings.Models.LandlordTypes>()"></select>
+                <span asp-validation-for="Type" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="City" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="State" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Zipcode" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Zipcode" class="form-control" />
+                <span asp-validation-for="Zipcode" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to Landlord Index</a>
+</div>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LandlordRatings.Models
 {
-    public enum landlordTypes
+    public enum LandlordTypes
     { Individual = 0,
       Company = 1
     };
@@ -14,10 +14,15 @@ namespace LandlordRatings.Models
     public class LandlordModel
     {
         public int ID { get; set; }
-        public landlordTypes Type { get; set; }
+        [Required]
+        public LandlordTypes Type { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string State { get; set; }
+        [Required, DataType(DataType.PostalCode)]
         public string Zipcode { get; set; }
         public List<RatingModel> Ratings { get; set; }
     }
