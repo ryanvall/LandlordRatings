@@ -34,15 +34,24 @@ namespace LandlordRatings.Controllers
             }
             else
             {
+                ViewData["LandlordID"] = ID;
                 List<RatingModel> ratingModels = _context.Ratings.Where(l => l.LandlordID == ID).ToList();
                 return View(ratingModels);
             }
         }
 
-        // GET: /Ratings/Create
-        public IActionResult Create()
+        // GET: /Ratings/Create/2
+        public IActionResult Create(int? ID)
         {
-            return View();
+            if (ID == null)
+            {
+                return NotFound();
+            } else
+            {
+                String name = _context.Landlords.SingleOrDefault(n => n.ID == ID).Name;
+                ViewData["LandlordName"] = name;
+                return View();
+            }
         }
 
         // POST: /Ratings/Create
