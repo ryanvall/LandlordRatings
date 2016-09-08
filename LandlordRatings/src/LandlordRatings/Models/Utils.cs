@@ -8,7 +8,7 @@ namespace LandlordRatings.Models
 {
     public class Utils
     {
-        public static IEnumerable<SelectListItem> getStates()
+        public static IEnumerable<SelectListItem> GetStates()
         {
             IList<SelectListItem> states = new List<SelectListItem>
             {

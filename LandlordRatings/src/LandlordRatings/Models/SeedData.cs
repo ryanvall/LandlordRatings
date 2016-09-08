@@ -51,6 +51,7 @@ namespace MvcMovie.Models
                 context.Ratings.AddRange(
                      new RatingModel
                      {
+                         LandlordID = 1,
                          PriceScore = 3,
                          PersonalityScore = 4,
                          FlexibilityScore = 4,
@@ -60,6 +61,7 @@ namespace MvcMovie.Models
 
                      new RatingModel
                      {
+                         LandlordID = 2,
                          PriceScore = 2,
                          PersonalityScore = 4,
                          FlexibilityScore = 3,

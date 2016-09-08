@@ -1,8 +1,66 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
+@model LandlordRatings.Models.RatingModel
+
 @{
     ViewData["Title"] = "Add a Rating";
 }
 
-@*todo add form for adding a rating to a specified landlord*@
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Rating</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="FlexibilityScore" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @for (int i = 1; i < 6; i++)
+                {
+                    <input asp-for="FlexibilityScore" type="radio" value="@(i)" class="form-control"/> @(i)
+                }
+                <span asp-validation-for="FlexibilityScore" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PersonalityScore" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @for (int i = 1; i < 6; i++)
+                {
+                    <input asp-for="FlexibilityScore" type="radio" value="@(i)" class="form-control" /> @(i)
+                }
+                <span asp-validation-for="PersonalityScore" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PriceScore" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @for (int i = 1; i < 6; i++)
+                {
+                    <input asp-for="PriceScore" type="radio" value="@(i)" class="form-control" /> @(i)
+                }
+                <span asp-validation-for="PriceScore" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ResponsivenessScore" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @for (int i = 1; i < 6; i++)
+                {
+                    <input asp-for="ResponsivenessScore" type="radio" value="@(i)" class="form-control" /> @(i)
+                }
+                <span asp-validation-for="ResponsivenessScore" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to Ratings Index</a>
+</div>
