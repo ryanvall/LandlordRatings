@@ -50,6 +50,7 @@ namespace LandlordRatings.Controllers
             {
                 String name = _context.Landlords.SingleOrDefault(n => n.ID == ID).Name;
                 ViewData["LandlordName"] = name;
+                ViewData["LandlordID"] = ID;
                 return View();
             }
         }

@@ -52,8 +52,6 @@ namespace LandlordRatings.Migrations
 
                     b.Property<int>("LandlordID");
 
-                    b.Property<int?>("LandlordModelID");
-
                     b.Property<int>("PersonalityScore");
 
                     b.Property<int>("PriceScore");
@@ -62,16 +60,17 @@ namespace LandlordRatings.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("LandlordModelID");
+                    b.HasIndex("LandlordID");
 
                     b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("LandlordRatings.Models.RatingModel", b =>
                 {
-                    b.HasOne("LandlordRatings.Models.LandlordModel")
+                    b.HasOne("LandlordRatings.Models.LandlordModel", "Landlord")
                         .WithMany("Ratings")
-                        .HasForeignKey("LandlordModelID");
+                        .HasForeignKey("LandlordID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

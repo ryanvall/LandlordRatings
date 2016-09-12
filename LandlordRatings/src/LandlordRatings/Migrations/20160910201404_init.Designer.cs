@@ -8,8 +8,8 @@ using LandlordRatings.Data;
 namespace LandlordRatings.Migrations
 {
     [DbContext(typeof(LandlordDbContext))]
-    [Migration("20160831160058_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20160910201404_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,21 +22,21 @@ namespace LandlordRatings.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("city");
+                    b.Property<string>("City")
+                        .IsRequired();
 
-                    b.Property<string>("name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<int?>("ratingID");
+                    b.Property<string>("State")
+                        .IsRequired();
 
-                    b.Property<string>("state");
+                    b.Property<int>("Type");
 
-                    b.Property<int>("type");
-
-                    b.Property<string>("zipcode");
+                    b.Property<string>("Zipcode")
+                        .IsRequired();
 
                     b.HasKey("ID");
-
-                    b.HasIndex("ratingID");
 
                     b.ToTable("Landlords");
                 });
@@ -46,26 +46,33 @@ namespace LandlordRatings.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("flexibilityScore");
+                    b.Property<string>("Comments")
+                        .HasAnnotation("MaxLength", 300);
 
-                    b.Property<double>("overallScore");
+                    b.Property<int>("FlexibilityScore");
 
-                    b.Property<int>("personalityScore");
+                    b.Property<int>("LandlordID");
 
-                    b.Property<int>("priceScore");
+                    b.Property<int?>("LandlordModelID");
 
-                    b.Property<int>("responsivenessScore");
+                    b.Property<int>("PersonalityScore");
+
+                    b.Property<int>("PriceScore");
+
+                    b.Property<int>("ResponsivenessScore");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("LandlordModelID");
 
                     b.ToTable("Ratings");
                 });
 
-            modelBuilder.Entity("LandlordRatings.Models.LandlordModel", b =>
+            modelBuilder.Entity("LandlordRatings.Models.RatingModel", b =>
                 {
-                    b.HasOne("LandlordRatings.Models.RatingModel", "rating")
-                        .WithMany()
-                        .HasForeignKey("ratingID");
+                    b.HasOne("LandlordRatings.Models.LandlordModel")
+                        .WithMany("Ratings")
+                        .HasForeignKey("LandlordModelID");
                 });
         }
     }
