@@ -34,9 +34,18 @@ namespace LandlordRatings.Controllers
             }
             else
             {
-                ViewData["LandlordID"] = ID;
-                List<RatingModel> ratingModels = _context.Ratings.Where(l => l.LandlordID == ID).ToList();
-                return View(ratingModels);
+                LandlordModel lm = _context.Landlords.SingleOrDefault(n => n.ID == ID);
+                if (lm == null)
+                {
+                    return NotFound();
+                } else
+                {
+                    String name = lm.Name;
+                    ViewData["LandlordName"] = name;
+                    ViewData["LandlordID"] = ID;
+                    List<RatingModel> ratingModels = _context.Ratings.Where(l => l.LandlordID == ID).ToList();
+                    return View(ratingModels);
+                }
             }
         }
 

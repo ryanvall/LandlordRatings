@@ -66,6 +66,8 @@ namespace LandlordRatings
 
             app.UseApplicationInsightsExceptionTelemetry();
 
+            app.UseStatusCodePages();
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

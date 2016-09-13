@@ -23,7 +23,7 @@ namespace LandlordRatings.Controllers
         // GET: /Landlords?name=[letter]
         public IActionResult Index(string name = "")
         {
-            if (name == null)
+            if (name == "")
             {
                 return View(_context.Landlords.ToList());
             } else

@@ -30,9 +30,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Zipcode)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Rating.OverallScore)
-            </th>*@
         </tr>
     </thead>
     <tbody>
@@ -54,9 +51,6 @@
         <td>
             @Html.DisplayFor(landlordItem => landlord.Zipcode)
         </td>
-        @*<td>
-            @Html.DisplayFor(landlordItem => landlord.Rating.OverallScore)
-        </td>*@
         <td>
             <a asp-action="Details" asp-route-id="@landlord.ID">Details</a>
         </td>
@@ -66,7 +60,10 @@
 }
     </tbody>
 </table>
-} else
+
+<p>Don't see your landlord? Add yours <a asp-action="Create" asp-controller="Landlords">here!</a></p>
+}
+else
 {
-    <p>No results found</p>
+    <p>No landlords found. Add one <a asp-action="Create" asp-controller="Landlords">here!</a></p>
 }
