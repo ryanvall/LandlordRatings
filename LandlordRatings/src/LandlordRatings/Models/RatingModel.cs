@@ -25,7 +25,7 @@ namespace LandlordRatings.Models
         public int FlexibilityScore { get; set; }
         [Required, Display(Name = "Responsiveness Score")]
         public int ResponsivenessScore { get; set; }
-        [StringLength(300, ErrorMessage = "Comments are limited to 300 characters."), Display(Name = "Additional Comments")]
+        [StringLength(300, ErrorMessage = "Comments are limited to 300 characters."), Display(Name = "Additional Comments"), DataType(DataType.MultilineText)]
         public string Comments { get; set; }
 
         [Display(Name = "Overall Score")]
