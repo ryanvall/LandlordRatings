@@ -12,4 +12,7 @@
 <h3>Type: @(Model.Type.ToString())</h3>
 <h3>Location: @(Model.City), @(Model.State)</h3>
 
-<p>View ratings <a href="/Ratings/Details/@(Model.ID)">here.</a></p>
+<br />
+@Html.Partial("../Ratings/Preview.cshtml", Model.Ratings)
+
+<p>View all ratings <a href="/Ratings/Details/@(Model.ID)">here.</a></p>

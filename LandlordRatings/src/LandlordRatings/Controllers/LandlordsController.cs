@@ -69,6 +69,14 @@ namespace LandlordRatings.Controllers
                 {
                     return NotFound();
                 }
+                List<RatingModel> ratings = _context.Ratings.Where(r => r.LandlordID == ID).ToList();
+                if (ratings != null)
+                {
+                    lm.Ratings = ratings;
+                } else
+                {
+                    lm.Ratings = new List<RatingModel>();
+                }
                 return View(lm);
             }
         }

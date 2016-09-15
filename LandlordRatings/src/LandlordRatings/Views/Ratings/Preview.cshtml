@@ -5,13 +5,12 @@
 @model IEnumerable<LandlordRatings.Models.RatingModel>
 
 @{
-    ViewData["Title"] = "Rating Details";
+    ViewData["Title"] = "Rating Preview";
 }
-
-<h2>Ratings for @ViewData["LandlordName"]</h2>
 
 @if (Model.Count() != 0)
 {
+    <h4>A few sample ratings:</h4>
     <table class="table">
         <thead>
             <tr>
@@ -36,7 +35,8 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var rating in Model)
+            @*Display only up to 5 ratings*@
+            @foreach (var rating in Model.Take(5))
             {
                 <tr>
                     <td>
@@ -61,10 +61,8 @@
             }
         </tbody>
     </table>
-    <p><a asp-controller="Landlords" asp-action="Details" asp-route-id="@ViewData["LandlordID"]">Return to landlord details</a></p>
 }
 else
 {
     <p>No ratings found. Be the first to submit one <a asp-controller="Ratings" asp-action="Create" asp-route-id="@ViewData["LandlordID"]">here!</a></p>
-    @*<p>No ratings found. Be the first to submit one <a href="/Ratings/Create/@(ViewData["LandlordID"])">here!</a></p>*@
 }
