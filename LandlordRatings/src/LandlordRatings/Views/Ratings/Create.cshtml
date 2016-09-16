@@ -57,7 +57,7 @@
         <div class="form-group">
             <label asp-for="Comments" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Comments, 5, 4, null)
+                @Html.TextAreaFor(model => model.Comments, 5, 50, new { @class = "form-control" })
                 @*<input asp-for="Comments" class="form-control" />*@
                 <span asp-validation-for="Comments" class="text-danger" />
             </div>

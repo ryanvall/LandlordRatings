@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
+@using LandlordRatings.Models
 @model LandlordRatings.Models.LandlordModel
 
 @{
@@ -40,7 +41,8 @@
         <div class="form-group">
             <label asp-for="State" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="State" class="form-control" />
+                @Html.DropDownListFor(model => model.State, Utils.GetStates(), "Select State")
+                @*<input asp-for="State" class="form-control" />*@
                 <span asp-validation-for="State" class="text-danger" />
             </div>
         </div>

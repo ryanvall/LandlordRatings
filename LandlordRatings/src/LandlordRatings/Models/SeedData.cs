@@ -26,7 +26,7 @@ namespace MvcMovie.Models
                          Type = LandlordTypes.Individual,
                          Name = "David Rossi",
                          City = "Cleveland",
-                         State = "Ohio",
+                         State = "OH",
                          Zipcode = "44106",
                          Ratings = new System.Collections.Generic.List<RatingModel>()
                      },
@@ -36,7 +36,7 @@ namespace MvcMovie.Models
                          Type = LandlordTypes.Company,
                          Name = "Uptown",
                          City = "Cleveland",
-                         State = "Ohio",
+                         State = "OH",
                          Zipcode = "44106",
                          Ratings = new System.Collections.Generic.List<RatingModel>()
                      }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,6 +15,8 @@ namespace LandlordRatings.Models
 
     public class LandlordModel
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity), BindNever]
         public int ID { get; set; }
         [Required]
         public LandlordTypes Type { get; set; }
