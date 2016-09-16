@@ -16,43 +16,43 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="FlexibilityScore" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                @for (int i = 1; i < 6; i++)
-                {
-                    <input asp-for="FlexibilityScore" type="radio" value="@(i)" class="form-control"/> @(i)
-                }
-                <span asp-validation-for="FlexibilityScore" class="text-danger" />
-            </div>
+            @for (int i = 1; i < 6; i++)
+            {
+                <div class="col-md-1">
+                    @Html.RadioButtonFor(model => model.FlexibilityScore, i, new { @class = "form-control" }) @(i)
+                </div>
+            }
+            <span asp-validation-for="FlexibilityScore" class="text-danger" />
         </div>
         <div class="form-group">
             <label asp-for="PersonalityScore" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                @for (int i = 1; i < 6; i++)
-                {
-                    <input asp-for="PersonalityScore" type="radio" value="@(i)" class="form-control" /> @(i)
-                }
-                <span asp-validation-for="PersonalityScore" class="text-danger" />
-            </div>
+            @for (int i = 1; i < 6; i++)
+            {
+                <div class="col-md-1">
+                    @Html.RadioButtonFor(model => model.PersonalityScore, i, new { @class = "form-control" }) @(i)
+                </div>
+            }
+            <span asp-validation-for="PersonalityScore" class="text-danger" />
         </div>
         <div class="form-group">
             <label asp-for="PriceScore" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                @for (int i = 1; i < 6; i++)
-                {
-                    <input asp-for="PriceScore" type="radio" value="@(i)" class="form-control" /> @(i)
-                }
-                <span asp-validation-for="PriceScore" class="text-danger" />
-            </div>
+            @for (int i = 1; i < 6; i++)
+            {
+                <div class="col-md-1">
+                    @Html.RadioButtonFor(model => model.PriceScore, i, new { @class = "form-control" }) @(i)
+                </div>
+            }
+            <span asp-validation-for="PriceScore" class="text-danger" />
         </div>
         <div class="form-group">
             <label asp-for="ResponsivenessScore" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                @for (int i = 1; i < 6; i++)
-                {
-                    <input asp-for="ResponsivenessScore" type="radio" value="@(i)" class="form-control" /> @(i)
-                }
-                <span asp-validation-for="ResponsivenessScore" class="text-danger" />
-            </div>
+            @for (int i = 1; i < 6; i++)
+            {
+                <div class="col-md-1">
+                    @Html.RadioButtonFor(model => model.ResponsivenessScore, i, new { @class = "form-control" }) @(i)
+                </div>
+            }
+            <span asp-validation-for="ResponsivenessScore" class="text-danger" />
         </div>
         <div class="form-group">
             <label asp-for="Comments" class="col-md-2 control-label"></label>

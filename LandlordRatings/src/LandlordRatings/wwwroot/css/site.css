@@ -36,3 +36,11 @@ textarea {
     display: none
   }
 }
+
+.button-home {
+    padding: 15px 25px;
+}
+
+.button-home:active {
+  transform: translateY(4px);
+}
