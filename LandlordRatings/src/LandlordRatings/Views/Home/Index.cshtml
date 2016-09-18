@@ -67,7 +67,7 @@
     {
         if (i != 90)
         {
-            <a href="/Landlords?name=@((char)i)">@((char)i)</a> @:&bull;
+            <a asp-action="Index" asp-controller="Landlords" asp-route-name="@((char)i)">@((char)i)</a> @:&bull;
         }
         else
         {

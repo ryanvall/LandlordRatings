@@ -31,5 +31,36 @@ namespace LandlordRatings.Models
 
         //reference to all ratings belonging to the landlord
         public virtual ICollection<RatingModel> Ratings { get; set; }
+
+        // Properties for first and last name of the landlord (if individual, if Landlord is a company it just returns the name)
+        public String FirstName
+        {
+            get
+            {
+                if (this.Type.ToString().Equals("Individual"))
+                {
+                    char[] delims = { ' ' };
+                    return Name.Split(delims)[0];
+                } else
+                {
+                    return Name;
+                }
+            }
+        }
+
+        public String LastName
+        {
+            get
+            {
+                if (this.Type.ToString().Equals("Individual"))
+                {
+                    char[] delims = { ' ' };
+                    return Name.Split(delims)[1];
+                } else
+                {
+                    return Name;
+                }
+            }
+        }
     }
 }

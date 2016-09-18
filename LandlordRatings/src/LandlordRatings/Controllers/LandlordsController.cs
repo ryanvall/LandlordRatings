@@ -29,7 +29,7 @@ namespace LandlordRatings.Controllers
             } else
             {
                 var query = from l in _context.Landlords
-                            where l.Name.Contains(name)
+                            where l.LastName.ToLower().Contains(name.ToLower())
                             select l;
                 return View(query.ToList());
             }
