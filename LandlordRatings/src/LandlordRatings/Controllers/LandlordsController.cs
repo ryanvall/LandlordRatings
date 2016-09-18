@@ -35,6 +35,24 @@ namespace LandlordRatings.Controllers
             }
         }
 
+        // GET: /Landlords?city=XXX&state=XXX
+        [ActionName("SearchByCityState")]
+        public IActionResult Index(string city = "", string state = "")
+        {
+            if (state == "" || city == "")
+            {
+                return View("Index", _context.Landlords.ToList());
+            }
+            else
+            {
+                var query = from l in _context.Landlords
+                            where l.State == state &&
+                            l.City == city
+                            select l;
+                return View("Index", query.ToList());
+            }
+        }
+
         // GET: /Landlords/Create
         public IActionResult Create()
         {

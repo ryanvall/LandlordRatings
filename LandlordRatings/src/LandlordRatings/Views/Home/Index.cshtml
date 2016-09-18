@@ -2,6 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+@using LandlordRatings.Models
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -52,19 +54,34 @@
 <br />
 <br />
 <div class="row">
-    <div class="col-md-4 text-center">
-        <button type="button" class="btn btn-lg btn-primary button-home">Search by name</button>
+    <div class="col-md-6 text-center">
+        <button type="button" class="btn btn-lg btn-primary button-home" onclick="toggler('alphabet');">Search by name</button>
     </div>
-    <div class="col-md-4 text-center">
-        <button type="button" class="btn btn-lg btn-primary button-home">Search by city</button>
-    </div>
-    <div class="col-md-4 text-center">
-        <button type="button" class="btn btn-lg btn-primary button-home">Search by landlord type</button>
+    <div class="col-md-6 text-center">
+        <button type="button" class="btn btn-lg btn-primary button-home" onclick="toggler('citystate');">Search by city</button>
     </div>
 </div>
 
-<ul>
-@for(int i = 65; i < 91; i++) {
-    <li><a href="/Landlords?name=@((char)i)">@((char)i)</a></li>
-}
-</ul>
+<div id="alphabet" class="hiddenMenu">
+    @for (int i = 65; i < 91; i++)
+    {
+        if (i != 90)
+        {
+            <a href="/Landlords?name=@((char)i)">@((char)i)</a> @:&bull;
+        }
+        else
+        {
+            <a href="/Landlords?name=@((char)i)">@((char)i)</a>
+        }
+    }
+</div>
+
+<div id="citystate" class="hiddenMenu">
+    <form asp-controller="Landlords" asp-action="SearchByCityState" method="get">
+        <p>
+            City: <input type="text" name="city" />
+            State: @Html.DropDownList("state", Utils.GetStates(), "Select State")
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+</div>

@@ -44,3 +44,9 @@ textarea {
 .button-home:active {
   transform: translateY(4px);
 }
+
+.hiddenMenu {
+    display:none;
+    text-align:center;
+    padding-top: 50px;
+}
