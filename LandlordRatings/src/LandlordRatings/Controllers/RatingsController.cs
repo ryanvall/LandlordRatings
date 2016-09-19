@@ -22,7 +22,14 @@ namespace LandlordRatings.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // Get 5 most recently added reveiws
+            var mostRecentQuery = from r in _context.Ratings
+                                  group r by r.DateAdded into mostrecent
+                                  orderby mostrecent.Key
+                                  select mostrecent;
+
+            List<RatingModel> ratings = mostRecentQuery.Take(5).SelectMany(rating => rating).ToList();
+            return View(ratings);
         }
 
         // GET: /Ratings/Details/5 (unique ID, matches Landlord ID)
@@ -69,6 +76,7 @@ namespace LandlordRatings.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(RatingModel rating)
         {
+            rating.DateAdded = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Ratings.Add(rating);

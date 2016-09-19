@@ -27,6 +27,8 @@ namespace LandlordRatings.Models
         public int ResponsivenessScore { get; set; }
         [StringLength(300, ErrorMessage = "Comments are limited to 300 characters."), Display(Name = "Additional Comments"), DataType(DataType.MultilineText)]
         public string Comments { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime DateAdded { get; set; }
 
         [Display(Name = "Overall Score")]
         public double OverallScore

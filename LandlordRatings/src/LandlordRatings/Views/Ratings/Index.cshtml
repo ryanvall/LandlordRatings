@@ -5,4 +5,33 @@
     ViewData["Title"] = "Ratings Index";
 }
 
-<p>hi</p>
+@model IEnumerable<LandlordRatings.Models.RatingModel>
+
+<h2>Newest ratings</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LandlordID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OverallScore)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rating in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(ratingItem => rating.LandlordID)
+                </td>
+                <td>
+                    @Html.DisplayFor(ratingItem => rating.OverallScore)
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
