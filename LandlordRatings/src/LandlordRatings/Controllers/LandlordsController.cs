@@ -82,7 +82,7 @@ namespace LandlordRatings.Controllers
                 return NotFound();
             } else
             {
-                LandlordModel lm = _context.Landlords.SingleOrDefault(l => l.ID == ID);
+                LandlordModel lm = _context.Landlords.SingleOrDefault(l => l.LandlordID == ID);
                 if (lm == null)
                 {
                     return NotFound();

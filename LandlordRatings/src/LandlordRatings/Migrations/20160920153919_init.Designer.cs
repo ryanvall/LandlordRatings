@@ -8,8 +8,8 @@ using LandlordRatings.Data;
 namespace LandlordRatings.Migrations
 {
     [DbContext(typeof(LandlordDbContext))]
-    [Migration("20160910202825_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20160920153919_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,7 @@ namespace LandlordRatings.Migrations
 
             modelBuilder.Entity("LandlordRatings.Models.LandlordModel", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("LandlordID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("City")
@@ -36,18 +36,20 @@ namespace LandlordRatings.Migrations
                     b.Property<string>("Zipcode")
                         .IsRequired();
 
-                    b.HasKey("ID");
+                    b.HasKey("LandlordID");
 
                     b.ToTable("Landlords");
                 });
 
             modelBuilder.Entity("LandlordRatings.Models.RatingModel", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("RatingID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Comments")
                         .HasAnnotation("MaxLength", 300);
+
+                    b.Property<DateTime>("DateAdded");
 
                     b.Property<int>("FlexibilityScore");
 
@@ -59,7 +61,7 @@ namespace LandlordRatings.Migrations
 
                     b.Property<int>("ResponsivenessScore");
 
-                    b.HasKey("ID");
+                    b.HasKey("RatingID");
 
                     b.HasIndex("LandlordID");
 

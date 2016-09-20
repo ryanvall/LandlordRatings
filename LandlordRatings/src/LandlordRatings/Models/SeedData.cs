@@ -20,27 +20,27 @@ namespace MvcMovie.Models
                     return;   // DB has been seeded
                 }
 
-                context.Landlords.AddRange(
-                     new LandlordModel
-                     {
-                         Type = LandlordTypes.Individual,
-                         Name = "David Rossi",
-                         City = "Cleveland",
-                         State = "OH",
-                         Zipcode = "44106",
-                         Ratings = new System.Collections.Generic.List<RatingModel>()
-                     },
+                LandlordModel seed1 = new LandlordModel
+                {
+                    Type = LandlordTypes.Individual,
+                    Name = "David Rossi",
+                    City = "Cleveland",
+                    State = "OH",
+                    Zipcode = "44106",
+                    Ratings = new System.Collections.Generic.List<RatingModel>()
+                };
 
-                     new LandlordModel
-                     {
-                         Type = LandlordTypes.Company,
-                         Name = "Uptown",
-                         City = "Cleveland",
-                         State = "OH",
-                         Zipcode = "44106",
-                         Ratings = new System.Collections.Generic.List<RatingModel>()
-                     }
-                );
+                LandlordModel seed2 = new LandlordModel
+                {
+                    Type = LandlordTypes.Company,
+                    Name = "Uptown",
+                    City = "Cleveland",
+                    State = "OH",
+                    Zipcode = "44106",
+                    Ratings = new System.Collections.Generic.List<RatingModel>()
+                };
+
+                context.Landlords.AddRange(seed1, seed2);
 
                 // Look for any ratings.
                 if (context.Ratings.Any())
@@ -57,6 +57,7 @@ namespace MvcMovie.Models
                          FlexibilityScore = 4,
                          ResponsivenessScore = 2,
                          Comments = "ok. rossi test",
+                         Landlord = seed1
                      },
 
                      new RatingModel
@@ -67,6 +68,7 @@ namespace MvcMovie.Models
                          FlexibilityScore = 3,
                          ResponsivenessScore = 5,
                          Comments = "great! uptown test",
+                         Landlord = seed2
                      }
                 );
                 context.SaveChanges();

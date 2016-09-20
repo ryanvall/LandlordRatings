@@ -13,7 +13,7 @@ namespace LandlordRatings.Migrations
                 name: "Landlords",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    LandlordID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     City = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
@@ -23,38 +23,38 @@ namespace LandlordRatings.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Landlords", x => x.ID);
+                    table.PrimaryKey("PK_Landlords", x => x.LandlordID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Ratings",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    RatingID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Comments = table.Column<string>(maxLength: 300, nullable: true),
+                    DateAdded = table.Column<DateTime>(nullable: false),
                     FlexibilityScore = table.Column<int>(nullable: false),
                     LandlordID = table.Column<int>(nullable: false),
-                    LandlordModelID = table.Column<int>(nullable: true),
                     PersonalityScore = table.Column<int>(nullable: false),
                     PriceScore = table.Column<int>(nullable: false),
                     ResponsivenessScore = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ratings", x => x.ID);
+                    table.PrimaryKey("PK_Ratings", x => x.RatingID);
                     table.ForeignKey(
-                        name: "FK_Ratings_Landlords_LandlordModelID",
-                        column: x => x.LandlordModelID,
+                        name: "FK_Ratings_Landlords_LandlordID",
+                        column: x => x.LandlordID,
                         principalTable: "Landlords",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "LandlordID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ratings_LandlordModelID",
+                name: "IX_Ratings_LandlordID",
                 table: "Ratings",
-                column: "LandlordModelID");
+                column: "LandlordID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

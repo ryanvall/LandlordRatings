@@ -6,6 +6,7 @@
 
 @{
     ViewData["Title"] = "Landlord Details";
+    ViewData["LandlordID"] = Model.LandlordID;
 }
 
 <h2>Name: @(Model.Name)</h2>
@@ -15,4 +16,4 @@
 <br />
 @Html.Partial("../Ratings/Preview.cshtml", Model.Ratings)
 
-<p>View all ratings <a href="/Ratings/Details/@(Model.ID)">here.</a></p>
+<p>View all ratings <a href="/Ratings/Details/@(Model.LandlordID)">here.</a></p>

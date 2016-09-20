@@ -18,7 +18,7 @@ namespace LandlordRatings.Migrations
 
             modelBuilder.Entity("LandlordRatings.Models.LandlordModel", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("LandlordID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("City")
@@ -35,14 +35,14 @@ namespace LandlordRatings.Migrations
                     b.Property<string>("Zipcode")
                         .IsRequired();
 
-                    b.HasKey("ID");
+                    b.HasKey("LandlordID");
 
                     b.ToTable("Landlords");
                 });
 
             modelBuilder.Entity("LandlordRatings.Models.RatingModel", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("RatingID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Comments")
@@ -60,7 +60,7 @@ namespace LandlordRatings.Migrations
 
                     b.Property<int>("ResponsivenessScore");
 
-                    b.HasKey("ID");
+                    b.HasKey("RatingID");
 
                     b.HasIndex("LandlordID");
 

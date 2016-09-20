@@ -41,7 +41,7 @@ namespace LandlordRatings.Controllers
             }
             else
             {
-                LandlordModel lm = _context.Landlords.SingleOrDefault(n => n.ID == ID);
+                LandlordModel lm = _context.Landlords.SingleOrDefault(n => n.LandlordID == ID);
                 if (lm == null)
                 {
                     return NotFound();
@@ -64,7 +64,7 @@ namespace LandlordRatings.Controllers
                 return NotFound();
             } else
             {
-                String name = _context.Landlords.SingleOrDefault(n => n.ID == ID).Name;
+                String name = _context.Landlords.SingleOrDefault(n => n.LandlordID == ID).Name;
                 ViewData["LandlordName"] = name;
                 ViewData["LandlordID"] = ID;
                 return View();
@@ -76,7 +76,9 @@ namespace LandlordRatings.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(RatingModel rating)
         {
+            // Add current timestamp and Landlord reference
             rating.DateAdded = DateTime.Now;
+            rating.Landlord = _context.Landlords.SingleOrDefault(l => l.LandlordID == rating.LandlordID);
             if (ModelState.IsValid)
             {
                 _context.Ratings.Add(rating);

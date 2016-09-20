@@ -17,7 +17,7 @@ namespace LandlordRatings.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), BindNever]
-        public int ID { get; set; }
+        public int LandlordID { get; set; }
         [Required]
         public LandlordTypes Type { get; set; }
         [Required]
@@ -29,7 +29,7 @@ namespace LandlordRatings.Models
         [Required, DataType(DataType.PostalCode)]
         public string Zipcode { get; set; }
 
-        //reference to all ratings belonging to the landlord
+        // reference to all ratings belonging to the landlord
         public virtual ICollection<RatingModel> Ratings { get; set; }
 
         // Properties for first and last name of the landlord (if individual, if Landlord is a company it just returns the name)

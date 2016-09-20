@@ -12,7 +12,7 @@ namespace LandlordRatings.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), BindNever]
-        public int ID { get; set; }
+        public int RatingID { get; set; }
         public int LandlordID { get; set; }
         // reference to landlord
         [ForeignKey("LandlordID")]
