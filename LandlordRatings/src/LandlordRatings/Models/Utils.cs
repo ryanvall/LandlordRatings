@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using LandlordRatings.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace LandlordRatings.Models
 {
@@ -65,6 +67,20 @@ namespace LandlordRatings.Models
                 new SelectListItem { Text="Wyoming", Value="WY"}
             };
             return states;
-        }       
+        } 
+        
+        /**
+         * Return the name of a landlord via their ID 
+         */
+        public static String LandlordIDToName(int ID)
+        {
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=LandlordRatings.Data;Trusted_Connection=True;";
+            var optionsBuilder = new DbContextOptionsBuilder<LandlordDbContext>();
+            optionsBuilder.UseSqlServer(connection);
+            //can also be UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
+            LandlordDbContext context = new LandlordDbContext(optionsBuilder.Options);
+            String name = context.Landlords.SingleOrDefault(l => l.LandlordID == ID).Name;
+            return name;
+        }      
     }
 }

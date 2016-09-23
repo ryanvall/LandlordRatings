@@ -29,6 +29,11 @@ namespace LandlordRatings.Controllers
                                   select mostrecent;
 
             List<RatingModel> ratings = mostRecentQuery.Take(5).SelectMany(rating => rating).ToList();
+            foreach (RatingModel rating in ratings)
+            {
+                rating.Landlord = new LandlordModel();
+                rating.Landlord.Name = Utils.LandlordIDToName(rating.LandlordID);
+            }
             return View(ratings);
         }
 
